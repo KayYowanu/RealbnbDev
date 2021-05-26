@@ -1,0 +1,49 @@
+﻿@page "/myproperties"
+@inject IBnBService BnBService
+@using RealbnbDev.Models
+@using RealbnbDev.Services
+
+
+@if (objBnB == null)
+{
+    <div class="spinner-border text-primary" role="status"></div>
+}
+else
+{
+    <table class='table'>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var list in objBnB)
+            {
+                <tr>
+                    <td></td>
+                    <td>@list.Name</td>
+                    <td>@list.Description</td>
+                    <td>
+                        <a class="btn btn-success">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                        @*<input type="button" class="btn" @onclick="@UpdateDateTrack" value="Update UpdateDate" />*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+@code {
+    IEnumerable<bnbProperties> objBnB;
+
+    protected override async Task OnInitializedAsync()
+    {
+        objBnB = await BnBService.GetProperties();
+    }
+
+}

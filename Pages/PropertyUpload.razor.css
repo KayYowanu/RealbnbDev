@@ -1,0 +1,46 @@
+.property-page {
+    margin: 2% 10%;
+    box-shadow: 0 0 30px rgba(110, 81, 78);
+}
+.property-upload-form {
+    padding: 5% 5%;
+}
+.left-column {
+    float: left;
+    width: 30%;
+    margin-left: 2%;
+}
+.middle-column {
+    width: 30%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+.right-column {
+    float: left;
+    width: 30%;
+    margin-right: 2%;
+}
+/***************/
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
