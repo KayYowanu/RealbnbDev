@@ -39,11 +39,9 @@
                         <input type="text" class="form-control" id="location" placeholder="Enter the property location" @bind="@objBnB.Location">
                     </div>
                 </div>
-                <!--Amenities Begins-->
-                <!--Amenities Ends-->
                 <div class="form-row">
                     <div class="form-group col-md-10">
-                        <label class="file">
+                        <label class="file"><h4>Select Main Image</h4>
                             <input type="file" id="file" aria-label="File browser example" @bind="@objBnB.Image">
                             <span class="file-custom"></span>
                         </label>
@@ -54,28 +52,110 @@
 
             <div class="middle-column">
                 <!--middle Column content begins-->
-                
-            </div><!--middle Column content ends-->
-
-            <div class="right-column">
-                <!--right Column content begins-->
-                <div class="form-row">
-                    <div class="form-group col-md-10">
-                        <InputFile id="fileInput" OnChange="UploadFiles" hidden multiple accept=".jpg, .jpeg, .png" />
-                        <MudFab HtmlTag="label"
-                                Color="Color.Secondary"
-                                Icon="@Icons.Filled.Image"
-                                Label="Upload the Main image"
-                                for="fileInput" />
+                <!--Amenities Begins-->
+                <div class="form-group col-md-12">
+                    <h4>Amenities</h4>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Air Conditioning
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value=""> Kitchen
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Shampoo
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Indoor Fireplace
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Dryer
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Smoke&nbsp;Alarm
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Piano
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Wifi
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Ski&minus;In/Ski&minus;Out
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">High&nbsp;Chair
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Heating
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Private Bathroom
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Carbon Monoxide Alarm
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Waterfront
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Iron
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Hair&emsp;Dryer
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Dedicated Workspace
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Hangers
+                        </label>
+                    </div>
+                    <div class="row checkbox-class">
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Washing Machine
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">Beachfront
+                        </label>
+                        <label class="checkbox-inline col-md-3">
+                            <input type="checkbox" value="">TV
+                        </label>
                     </div>
                 </div>
-            </div><!--right Column content ends-->
+                    <!--Amenities Ends-->
 
-            <div class="form-group col-md-10">
-                <label for="description">Room Description</label>
-                <textarea type="text" class="form-control" rows="5" id="description" placeholder="Write a brief description about the room" @bind="@objBnB.Description" />
+                </div><!--middle Column content ends-->
+
+                <div class="right-column">
+                    <!--right Column content begins-->
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <InputFile id="fileInput" OnChange="UploadFiles" hidden multiple accept=".jpg, .jpeg, .png" />
+                            <MudFab HtmlTag="label"
+                                    Color="Color.Secondary"
+                                    Icon="@Icons.Filled.Image"
+                                    Label="Upload other images"
+                                    for="fileInput" />
+                        </div>
+                    </div>
+                </div><!--right Column content ends-->
+
+                <div class="form-group col-md-10">
+                    <label for="description">Room Description</label>
+                    <textarea type="text" class="form-control" rows="5" cols="2" id="description" placeholder="Write a brief description about the room" @bind="@objBnB.Description" />
+                </div>
             </div>
-        </div>
         <button type="submit" class="btn btn-primary" @onclick="@CreateProperty">Upload</button>
 
     </form>
