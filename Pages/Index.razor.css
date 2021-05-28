@@ -46,9 +46,10 @@
     }
 }
 
-.card {
+.card-box {
     background: #f7f9ff;
     border-radius: 15px;
+    margin-bottom: 2%;
 }
 
 .card1:hover {
@@ -73,6 +74,18 @@
 
 .card-text {
     font-size: 15px;
+}
+
+.truncate {
+    /**Major Properties**/
+    overflow: hidden;
+    line-height: 1.5rem;
+    max-height: 8rem;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden !important;
+    -webkit-line-clamp: 2;
 }
 
 .room-price {
