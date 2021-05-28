@@ -18,14 +18,14 @@ namespace RealbnbDev.Services
         Task<bool> DeleteProperty(int Id);
         /*************************************************************************************************/
         /*FOR TODO-LIST DEVELOPER SUB-TASKS*/
-        /*Task<IEnumerable<SubTasks>> GetTodoSub(int Id);
-        Task<bool> CreateTodoSub(SubTasks tod, int Id);
-        Task<bool> DeleteTodoSub(int Id);
+        Task<IEnumerable<bnbAmenities>> GetAmenities(int Id);
+        Task<bool> CreateAmenity(bnbAmenities ant, int Id);
+        /*Task<bool> DeleteTodoSub(int Id);
         Task<bool> IsDoneSub(int id, Boolean chechboxvalue);
         Task<SubTasks> GetSubTaskByTaskId(int Id);*/
         /*************************************************************************************************/
         /*FOR TODO-LIST DEVELOPER SMART TASK*/
-        
+
         /*Task<IEnumerable<Todo>> GetCompletedTasks();
         Task<IEnumerable<Todo>> GetIncompletedTasks();
         Task<bool> IsDoneSmart(int id, Boolean chechboxvalue);

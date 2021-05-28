@@ -19,7 +19,7 @@ namespace RealbnbDev.Services
 
 
         /*************************************************************************************************/
-        /*FOR*/
+        /*FOR BNBPROPERTIES*/
 
 
         public async Task<bool> CreateProperty(bnbProperties bnb)
@@ -143,6 +143,60 @@ namespace RealbnbDev.Services
                 }
             }
             return bnb;
+        }
+        /*************************************************************************************************/
+        /*FOR AMENITIES*/
+        public async Task<IEnumerable<bnbAmenities>> GetAmenities(int Id)
+        {
+            IEnumerable<bnbAmenities> amenitylist;
+            //SubTasks todolist = new SubTasks();
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                const string query = @"select * from dbo.bnbAmenities where PropertyId = @Id order by SubtaskId DESC";
+
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                try
+                {
+                    amenitylist = await conn.QueryAsync<bnbAmenities>(query, new { Id }, commandType: CommandType.Text);
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open)
+                        conn.Close();
+                }
+
+            }
+            return amenitylist;
+        }
+
+        public async Task<bool> CreateAmenity(bnbAmenities amenity, int Id)
+        {
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                const string query = @"insert into dbo.bnbAmenities (AmenityId, PropertyId, Name) values (@AmenityId, @Id, @Name)";
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                try
+                {
+                    await conn.ExecuteAsync(query, new { amenity.AmenityId, Id, amenity.Name}, commandType: CommandType.Text);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open)
+                        conn.Close();
+                }
+            }
+            return true;
         }
 
 

@@ -38,7 +38,7 @@
                         <label for="location">Location</label>
                         <input type="text" class="form-control" id="location" placeholder="Enter the property location" @bind="@objBnB.Location">
                     </div>
-                </div>
+                </div><!--
                 <div class="form-row">
                     <div class="form-group col-md-10">
                         <label class="file"><h4>Select Main Image</h4>
@@ -46,7 +46,7 @@
                             <span class="file-custom"></span>
                         </label>
                     </div>
-                </div>
+                </div>-->
             </div><!--Left Column content ends-->
 
 
@@ -140,13 +140,27 @@
                 <div class="right-column">
                     <!--right Column content begins-->
                     <div class="form-row">
-                        <div class="form-group col-md-10">
+                        <div class="form-group col-md-12">
                             <InputFile id="fileInput" OnChange="UploadFiles" hidden multiple accept=".jpg, .jpeg, .png" />
                             <MudFab HtmlTag="label"
                                     Color="Color.Secondary"
                                     Icon="@Icons.Filled.Image"
                                     Label="Upload other images"
                                     for="fileInput" />
+                            <div class="image-count">
+                                @if (files != null)
+                                {
+                                    <MudText Typo="@Typo.h6">@files.Count() Image@(files.Count() == 1 ? " selected" : "s selected"):</MudText>
+                                    <MudList>
+                                        @foreach (var file in files)
+                                        {
+                                            <MudListItem Icon="@Icons.Filled.AttachFile" @key="@file">
+                                                @file.Name <code>@file.Size bytes</code>
+                                            </MudListItem>
+                                        }
+                                    </MudList>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div><!--right Column content ends-->
@@ -160,18 +174,7 @@
 
     </form>
 </div>
-@if (files != null)
-{
-    <MudText Typo="@Typo.h6">@files.Count() File@(files.Count() == 1 ? "" : "s"):</MudText>
-    <MudList>
-        @foreach (var file in files)
-        {
-            <MudListItem Icon="@Icons.Filled.AttachFile" @key="@file">
-                @file.Name <code>@file.Size bytes</code>
-            </MudListItem>
-        }
-    </MudList>
-}
+
 @code {
     /*for image upload MudBlazor code*/
     IList<IBrowserFile> files = new List<IBrowserFile>();
